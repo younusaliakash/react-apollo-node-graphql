@@ -1,23 +1,14 @@
 const express = require("express");
 const { ApolloServer } = require('apollo-server-express');
-const http = require('http')
 require("dotenv").config()
 
 const app = express();
 
 //query
-const typeDefs = `
-    type Query {
-        totalResult : Int!
-    }
-`;
+const typeDefs = require('./typeDefs');
 
 //resolvers
-const resolvers = {
-    Query : {
-        totalResult : () => 10
-    }
-}
+const resolvers = require('./resolvers')
 
 
 //rest api
